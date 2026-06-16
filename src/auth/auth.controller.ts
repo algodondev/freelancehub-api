@@ -1,5 +1,5 @@
 import { Body, Controller, Post } from '@nestjs/common';
-import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import { ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { AuthService } from './auth.service';
 import { LoginDto } from './dto/login.dto';
 
@@ -11,6 +11,14 @@ export class AuthController {
   @Post('login')
   @ApiOperation({
     summary: 'Get a JWT token with seeded freelancer credentials',
+  })
+  @ApiOkResponse({
+    description: 'JWT access token for authenticated requests',
+    schema: {
+      example: {
+        access_token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...',
+      },
+    },
   })
   login(@Body() loginDto: LoginDto): Promise<{ access_token: string }> {
     return this.authService.login(loginDto);
