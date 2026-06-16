@@ -5,6 +5,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { DatabaseModule } from './database/database.module';
+import { PublicModule } from './public/public.module';
 import { Service } from './services/service.entity';
 import { ServicesModule } from './services/services.module';
 import { User } from './users/user.entity';
@@ -25,6 +26,7 @@ import { UsersModule } from './users/users.module';
     DatabaseModule,
     UsersModule,
     ServicesModule,
+    PublicModule,
     AuthModule,
   ],
   controllers: [AppController],
